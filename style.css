@@ -3,9 +3,9 @@ body {
     background: linear-gradient(to bottom, #e0f7fa, #fff3e0);
     min-height: 100vh;
     margin: 0;
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
-
 
 .navbar {
     display: flex;
@@ -14,71 +14,67 @@ body {
     width: 100%;
     position: sticky;
     top: 0;
-    padding: 20px 0;
+    padding: 15px 0;
     z-index: 1000;
-    background: rgba(224, 247, 250, 0.8); 
-    backdrop-filter: blur(10px);         
-    -webkit-backdrop-filter: blur(10px);  
-    transition: background 0.3s ease, padding 0.3s ease;
+    background: rgba(224, 247, 250, 0.85); 
+    backdrop-filter: blur(12px);         
+    -webkit-backdrop-filter: blur(12px);  
+    transition: all 0.3s ease;
 }
-
 
 .navbar nav {
     display: flex;
     flex-direction: row; 
-    gap: 50px; 
-    padding: 0 40px 10px 40px; 
+    gap: 30px; 
+    padding: 0 20px 10px 20px; 
     border-bottom: 3px solid #1e9096; 
-    box-shadow: 0px 8px 6px -6px rgba(7, 7, 7, 0.3); 
+    box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.1); 
 }
-
 
 .navbar a {
     text-decoration: none;
     color: #1e9096;
-    font-family: 'roboto mono', sans-serif;
+    font-family: 'Roboto Mono', monospace;
     font-weight: bolder;
-    font-size: 24px; 
+    font-size: 1.2rem; 
     transition: all 0.3s ease;
 }
 
-
-.navbar a:hover {
+.navbar a:hover, .navbar a.active {
     color: #542f05;
-    transform: translateY(-3px);
-}
-
-.navbar a.active {
-    color: #542f05;
-}
-
-
-.container {
-    margin-right: 0; 
+    transform: translateY(-2px);
 }
 
 
 .header {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    gap: 50px;
-    font-size: 24px;
-    font-family: 'sans-serif';
+    gap: 40px;
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto; 
+    font-family: sans-serif;
     color: #542f05;
-    margin: 50px 400px;
 }
 
 .header .profile-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 35%;
+    width: 220px;
+    height: 220px;
+    border-radius: 30%;
     object-fit: cover;
     border: 5px solid #1e9096;
+    flex-shrink: 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.header-text h1 {
+    margin-top: 0;
+    font-size: 2.5rem;
 }
 
 .bio {
-    max-width: 600px;
+    max-width: 500px;
     font-size: 18px;
     line-height: 1.6;
     color: #333;
@@ -87,96 +83,91 @@ body {
 .content-section {
     max-width: 900px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
     font-family: Arial, sans-serif;
 }
 
 section {
     padding: 60px 0;
-    border-bottom: 1px solid rgba(30, 144, 150, 0.2);
+    border-bottom: 1px solid rgba(30, 144, 150, 0.1);
 }
 
 h2 {
     color: #1e9096;
     border-left: 5px solid #542f05;
     padding-left: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 .separator {
     border: 0;
     height: 1px;
-    background: #1e9096;
+    background: linear-gradient(to right, transparent, #1e9096, transparent);
     width: 80%;
-    margin: 20px auto;
+    margin: 40px auto;
 }
+
 
 .cert-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 25px;
+    
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
     padding: 20px 0;
 }
 
 .cert-card {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 12px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    overflow: hidden; 
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(30, 144, 150, 0.1);
 }
 
 .cert-card img {
-    width: 350px;
+    width: 100%;
     height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background: #fff;
 }
 
 .cert-card p {
-    font-family: 'roboto mono', sans-serif;
+    font-family: 'Roboto Mono', monospace;
     color: #542f05;
     font-weight: bold;
+    font-size: 0.95rem;
 }
 
-
-.cert-card:active, .cert-card:hover {
-    transform: scale(1.1); 
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-    background: rgba(255, 255, 255, 0.8);
+.cert-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
+    background: #fff;
 }
 
+/* Footer & Contact */
 footer {
-    background: rgba(255, 255, 255, 0.3); 
-    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.4); 
+    padding: 60px 20px;
     text-align: center;
     margin-top: 50px;
-    border-top: 1px solid rgba(30, 144, 150, 0.2);
-}
-
-footer h2 {
-    display: inline-block;
-    border-left: none; 
-    border-bottom: 3px solid #1e9096; 
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-    filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.1));
 }
 
 .footer-content p {
-    margin: 10px 0;
-    font-family: Arial, sans-serif;
+    margin: 12px 0;
+    font-size: 1.1rem;
     color: #542f05;
 }
 
@@ -184,10 +175,48 @@ footer h2 {
     color: #1e9096;
     text-decoration: none;
     font-weight: bold;
+    padding: 5px 10px;
+    transition: background 0.3s;
+}
+
+.footer-content a:hover {
+    background: rgba(30, 144, 150, 0.1);
+    border-radius: 5px;
 }
 
 .copyright {
     font-size: 14px;
-    color: #888;
-    margin-top: 30px;
+    color: #666;
+    margin-top: 40px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .header-text h1 {
+        font-size: 2rem;
+    }
+
+    .bio {
+        font-size: 16px;
+    }
+
+    .navbar nav {
+        gap: 15px;
+        padding-bottom: 5px;
+    }
+
+    .navbar a {
+        font-size: 0.9rem;
+    }
+
+    .cert-grid {
+        grid-template-columns: 1fr; 
+    }
 }
